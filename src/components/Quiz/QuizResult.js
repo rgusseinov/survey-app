@@ -7,7 +7,7 @@ function QuizResult({ totalCorrectAnswers, quizLength }) {
       <h3> Результаты тестование </h3>
       <br/>
       <label>
-        <input type="checkbox" checked="checked" />
+        <input type="checkbox" checked="checked" onChange={() => {}} />
         <span>Правильные ответы { totalCorrectAnswers } из { quizLength }</span>
       </label>
       <br/>

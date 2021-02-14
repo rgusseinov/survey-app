@@ -15,6 +15,7 @@ function AddQuiz() {
     const data = {
       id: Date.now(),
       rightAnswerId: input['rightAnswerId'], 
+      question: input['question'],
       answers:[
         {text: input['answerA'], id: 1}, {text: input['answerB'], id: 2}, 
         {text: input['answerС'], id: 3}, {text: input['answerD'], id: 4}
