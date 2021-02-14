@@ -1,22 +1,19 @@
 import React from 'react'
 import AnswersList from '../AnswersList/AnswersList'
 
-class ActiveQuiz extends React.Component {
-  
-  render(){
-   
+function ActiveQuiz({ question, activeNumber, quizLength, answers, answerState, onAnswerClick }){
+
     return(
       <div>
-        <h4> {this.props.question} </h4>
-        <span>{this.props.activeNumber} из {this.props.quizLength} </span>
+        <h4> {question} </h4>
+        <span>{activeNumber} из {quizLength} </span>
         <AnswersList 
-          answers={this.props.answers}
-          answerState={this.props.answerState}
-          onAnswerClick={this.props.onAnswerClick}
+          answers={answers}
+          answerState={answerState}
+          onAnswerClick={onAnswerClick}
         />
       </div>
     )
-  }
 }
 
 export default ActiveQuiz

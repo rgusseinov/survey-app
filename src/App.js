@@ -1,18 +1,40 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
+import Header from './components/Header';
+import AddQuiz from './components/Quiz/AddQuiz';
 import Quiz from './components/Quiz/Quiz';
+import QuizCategory from './components/Quiz/QuizCategory';
 
-class App extends React.Component {
+function App() {
+    const [activeCategory, setActiveCategory] = useState(0)
 
-  
-  render(){
+    function handleCategorySelect(e) {
+      const category = e.target.getAttribute('data-type')
+      setActiveCategory(category)
+    }
+
     return(
       <div className="App">
-        <Quiz />
+        <Header />
+        <Switch>
+          <Route path="/" exact >
+            {
+              activeCategory ?
+                <Quiz activeCategory={activeCategory} /> :
+                <QuizCategory onCategorySelect={handleCategorySelect} />
+            }
+          </Route>
+
+          <Route path="/add" >
+            <AddQuiz />
+          </Route>
+
+        </Switch>
       </div>
     )
-  }
-
 }
+
+
 
 export default App;
