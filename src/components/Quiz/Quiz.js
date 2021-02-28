@@ -21,7 +21,7 @@ class Quiz extends React.Component {
   }
 
   async componentDidMount(){
-    const data = await apiService.getQuize()
+    const data = await apiService.getQuize(this.activeCategory)
     this.setState({ quiz: data, isQuizLoaded: true })
   }
 
@@ -70,8 +70,6 @@ class Quiz extends React.Component {
   }
 
   render(){
-    // console.log(`question`, this.state.quiz)
-
     return(
       <div className="container">
       <div className="row">

@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-// import { db } from '../../services/firebase'
 import apiService from '../../services/firebase/apiService'
 
 function AddQuiz() {
@@ -21,7 +20,7 @@ function AddQuiz() {
         {text: input['answerС'], id: 3}, {text: input['answerD'], id: 4}
       ]
     }
-        
+
     apiService.addQuize(data)
   }
 

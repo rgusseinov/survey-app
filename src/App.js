@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
 import AddQuiz from './components/Quiz/AddQuiz';
+import AddQuizCategory from './components/Quiz/AddQuizCategory';
 import Quiz from './components/Quiz/Quiz';
 import QuizCategory from './components/Quiz/QuizCategory';
 
@@ -18,7 +19,7 @@ function App() {
       <div className="App">
         <Header />
         <Switch>
-          <Route path="/" exact >
+          <Route path="/" exact>
             {
               activeCategory ?
                 <Quiz activeCategory={activeCategory} /> :
@@ -26,8 +27,12 @@ function App() {
             }
           </Route>
 
-          <Route path="/add" >
+          <Route path="/quiz">
             <AddQuiz />
+          </Route>
+
+          <Route path="/quizCategory">
+            <AddQuizCategory />
           </Route>
 
         </Switch>
