@@ -21,8 +21,14 @@ function AddQuizCategory() {
       url: urlInput,
       name: input['category']
     }
+
     
-    apiService.addQuizeCategory(data)
+    if (!data.name){
+      alert(`Пожалуйста, укажите название категории!`)
+    } else {
+      apiService.addQuizeCategory(data)
+    }
+    
   }
 
   return (
@@ -32,7 +38,7 @@ function AddQuizCategory() {
           <div className="row">
             <div className="input-field col s12">
             
-            <input 
+            <input
               placeholder="URL"
               name="url"
               type="text"

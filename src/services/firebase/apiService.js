@@ -10,7 +10,7 @@ class apiService {
   }
 
   async getQuize(category){
-    const snapshot = await this.fb.firestore().collection('quizzes').get().then((res) => {
+    const snapshot = await this.fb.firestore().collection('quizzes').where("category", "==", category).get().then((res) => {      
       return res.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
     }).then(data => data)
     return snapshot

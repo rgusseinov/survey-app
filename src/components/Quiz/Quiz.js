@@ -22,6 +22,7 @@ class Quiz extends React.Component {
 
   async componentDidMount(){
     const data = await apiService.getQuize(this.activeCategory)
+    // console.log(data)
     this.setState({ quiz: data, isQuizLoaded: true })
   }
 
