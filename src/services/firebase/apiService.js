@@ -18,7 +18,10 @@ class apiService {
   
   async getQuizeCategories(){
     const snapshot = await this.fb.firestore().collection('quizCategory').get().then((res) => {
-      return res.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+      return res.docs.map((doc) => ({ 
+        id: doc.id, ...doc.data(),
+        docRef: doc.id
+      }));
     }).then(data => data)
     return snapshot
   }
@@ -26,6 +29,20 @@ class apiService {
   addQuize(data){
     this.fb.firestore().collection('quizzes').add(data)
   }
+
+  
+  async deleteQuiz(id){
+        
+    this.fb.firestore().collection("quizCategory").doc(id).delete().then(() => {
+      console.log("Document successfully deleted!");
+      window.location.reload()
+      
+    }).catch((error) => {
+        console.error("Error removing document: ", error);
+    });
+
+  }
+
 
   addQuizeCategory(data){
     this.fb.firestore().collection('quizCategory').add(data)

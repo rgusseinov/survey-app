@@ -6,6 +6,7 @@ import AddQuiz from './components/Quiz/AddQuiz';
 import AddQuizCategory from './components/Quiz/AddQuizCategory';
 import Quiz from './components/Quiz/Quiz';
 import QuizCategory from './components/Quiz/QuizCategory';
+import apiService from './services/firebase/apiService';
 
 function App() {
     const [activeCategory, setActiveCategory] = useState(0)
@@ -13,6 +14,12 @@ function App() {
     function handleCategorySelect(e) {
       const category = e.target.getAttribute('data-type')
       setActiveCategory(category)
+    }
+
+    function handleCategoryRemove(e){
+      // console.log(`remove`, e.target.getAttribute('data-category'))
+      const categoryId = e.target.getAttribute('data-category')
+      apiService.deleteQuiz(categoryId)
     }
 
     return(
@@ -23,7 +30,10 @@ function App() {
             {
               activeCategory ?
                 <Quiz activeCategory={activeCategory} /> :
-                <QuizCategory onCategorySelect={handleCategorySelect} />
+                <QuizCategory 
+                  onCategorySelect={handleCategorySelect}
+                  onCategoryRemove={handleCategoryRemove}
+                />
             }
           </Route>
 

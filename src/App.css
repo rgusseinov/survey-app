@@ -5,3 +5,7 @@
 .error {
   background-color:rgb(255, 101, 81)
 }
+
+.category-item{
+  display: flex;
+}

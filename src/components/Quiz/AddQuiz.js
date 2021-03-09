@@ -85,7 +85,8 @@ class AddQuiz extends React.Component {
       }
 
       apiService.addQuize(data)
-      // console.log(`Data added`, data)
+      console.log(`Data added`, data)
+      
     }
 
   }
@@ -103,11 +104,12 @@ class AddQuiz extends React.Component {
               <select className="browser-default" onChange={this.handleFieldChange} name="category">
               
                 <option value="it">IT</option>
-                <option value="math">Математика</option>
+                <option value="Matematika">Математика</option>
                 <option value="fiz">Физика</option>
                 <option value="bio">Биология</option>
                 <option value="Frantsuzkii">Frantsuzkii</option>
-                
+                <option value="Samorazvitie">Саморазвитие</option>
+                               
                 
               </select>
               </div>

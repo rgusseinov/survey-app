@@ -29,7 +29,7 @@ class Quiz extends React.Component {
   answerClickHandler = (answerId) => {
     const rightAnswerId = this.state.quiz[this.state.activeQuestion].rightAnswerId
 
-    if (rightAnswerId === answerId){
+    if (+rightAnswerId === answerId){
       // for correct answers
       this.setState({
         answerState: {[answerId]: 'success'},
@@ -45,8 +45,7 @@ class Quiz extends React.Component {
 
     const timeout = window.setTimeout(() => {
       
-      if (this.isQuizFinished()){
-        
+      if (this.isQuizFinished()){        
         this.setState({
           isFinished: true
         })
@@ -57,6 +56,7 @@ class Quiz extends React.Component {
           activeQuestion: this.state.activeQuestion + 1,
           answerState: null
         })
+
       }
 
       window.clearTimeout(timeout)
