@@ -1,6 +1,16 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import apiService from '../../services/firebase/apiService'
 
 function QuizResult({ totalCorrectAnswers, quizLength }) {
+  
+   useEffect(() => {
+    apiService.addResult({
+      name: "Ruslan", 
+      score: totalCorrectAnswers,
+      total: quizLength
+    })
+  })
+
 
   return (
     <div>

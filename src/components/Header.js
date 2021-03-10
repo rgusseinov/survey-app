@@ -9,6 +9,7 @@ function Header() {
           <li><a href="/">Главная</a></li>
           <li><a href="/quiz">Вопросы</a></li>
           <li><a href="/quizCategory">Категории</a></li>
+          <li><a href="/result">Результаты</a></li>
         </ul>
       </div>
     </nav>

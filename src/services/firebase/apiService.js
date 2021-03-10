@@ -22,7 +22,7 @@ class apiService {
         id: doc.id, ...doc.data(),
         docRef: doc.id
       }));
-    }).then(data => data)
+    })
     return snapshot
   }
 
@@ -31,21 +31,22 @@ class apiService {
   }
 
   
-  async deleteQuiz(id){
-        
+  async deleteQuiz(id){        
     this.fb.firestore().collection("quizCategory").doc(id).delete().then(() => {
       console.log("Document successfully deleted!");
-      window.location.reload()
-      
+      window.location.reload()      
     }).catch((error) => {
         console.error("Error removing document: ", error);
     });
-
   }
 
 
   addQuizeCategory(data){
     this.fb.firestore().collection('quizCategory').add(data)
+  }
+
+  addResult(data){
+    this.fb.firestore().collection('results').add(data)
   }
 
 

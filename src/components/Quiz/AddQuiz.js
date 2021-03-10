@@ -1,6 +1,6 @@
 import React from 'react'
 import apiService from '../../services/firebase/apiService'
-// import apiService from '../../services/firebase/apiService'
+import Select from '../Select'
 
 class AddQuiz extends React.Component {
 
@@ -16,12 +16,10 @@ class AddQuiz extends React.Component {
   handleFieldChange = (event) => {
     const input = this.state.input
     input[event.target.name] = event.target.value;
-
+    
     this.setState({
       input
     })
-
-
   }
 
   formValidation(){
@@ -58,7 +56,6 @@ class AddQuiz extends React.Component {
       isValid = false
       error['rightAnswerId'] = 'Укажите правильный ответ'
     }
-
 
 
     this.setState({
@@ -101,17 +98,7 @@ class AddQuiz extends React.Component {
 
           <div className="row">
               <div className="input-field col s6">
-              <select className="browser-default" onChange={this.handleFieldChange} name="category">
-              
-                <option value="it">IT</option>
-                <option value="Matematika">Математика</option>
-                <option value="fiz">Физика</option>
-                <option value="bio">Биология</option>
-                <option value="Frantsuzkii">Frantsuzkii</option>
-                <option value="Samorazvitie">Саморазвитие</option>
-                               
-                
-              </select>
+                <Select handleFieldChange={this.handleFieldChange} />
               </div>
               { error.category }
             </div>

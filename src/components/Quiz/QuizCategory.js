@@ -26,7 +26,6 @@ class QuizCategory extends React.Component {
 
 
   render(){
-    // console.log(`items`, this.state.items)
     return (
       <div className="container">
         <div className="row">

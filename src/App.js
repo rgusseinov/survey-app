@@ -6,6 +6,7 @@ import AddQuiz from './components/Quiz/AddQuiz';
 import AddQuizCategory from './components/Quiz/AddQuizCategory';
 import Quiz from './components/Quiz/Quiz';
 import QuizCategory from './components/Quiz/QuizCategory';
+import Result from './components/Quiz/Result';
 import apiService from './services/firebase/apiService';
 
 function App() {
@@ -44,7 +45,9 @@ function App() {
           <Route path="/quizCategory">
             <AddQuizCategory />
           </Route>
-
+          <Route path="/result">
+            <Result />
+          </Route>
         </Switch>
       </div>
     )
