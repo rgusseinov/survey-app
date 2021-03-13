@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
 import apiService from '../../services/firebase/apiService'
 import CyrillicToTranslit from 'cyrillic-to-translit-js'
+import Loader from '../Loader'
 
 function AddQuizCategory() {
   const [input, setInput] = useState({})
+  const [isLoaded, setLoader] = useState(true)
   const [urlInput, setUrlInput] = useState('')
-  
 
   function handleFieldChange(event){
     input[event.target.name] = event.target.value;
     const urlInput = new CyrillicToTranslit().transform(event.target.value)
-
     setUrlInput(urlInput)
     setInput(input)
   }
@@ -21,14 +21,18 @@ function AddQuizCategory() {
       url: urlInput,
       name: input['category']
     }
-
-    
+    setLoader(false)
     if (!data.name){
       alert(`Пожалуйста, укажите название категории!`)
-    } else {
+      setLoader(true)
+    } else {      
       apiService.addQuizeCategory(data)
-    }
-    
+      window.setTimeout(() => {
+        setUrlInput('')
+        setInput({})
+        setLoader(true)
+      }, 1000)
+    }    
   }
 
   return (
@@ -37,7 +41,9 @@ function AddQuizCategory() {
         <form className="col s6">
           <div className="row">
             <div className="input-field col s12">
-            
+            {
+              !isLoaded ? <Loader /> : null
+            }
             <input
               placeholder="URL"
               name="url"
@@ -51,12 +57,13 @@ function AddQuizCategory() {
               name="category"
               onChange={handleFieldChange}
               type="text"
-              className="validate" 
+              className="validate"
+              value={input['category']}
             />
               <label htmlFor="question"></label>
             </div>
           </div>
-          <a href="#!" className="waves-effect waves-light btn" onClick={handleSubmitForm}>Добавить</a>
+          <button type="reset" className="waves-effect waves-light btn" onClick={handleSubmitForm}>Добавить</button>
         </form>
     </div>
   </div>

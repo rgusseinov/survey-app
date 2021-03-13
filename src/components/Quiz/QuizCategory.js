@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import apiService from '../../services/firebase/apiService'
 import Loader from '../Loader'
 
@@ -14,7 +14,6 @@ class QuizCategory extends React.Component {
 
   async componentDidMount(){
     let categoryList = await apiService.getQuizeCategories()  
-    // console.log(`categoryList`, categoryList)
     const items = categoryList.map(item => {
       return item
     })

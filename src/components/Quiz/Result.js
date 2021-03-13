@@ -3,7 +3,25 @@ import apiService from '../../services/firebase/apiService'
 
 class Result extends React.Component{
 
+  constructor(options){
+    super(options)
+    this.state = {
+      items: []
+    }
+  }
+
+  async componentDidMount(){
+    let categoryList = await apiService.getUserResult()
+    const items = categoryList.map(item => {
+      return item
+    })
+    this.setState({
+      items: items
+    })
+  }
+
   render(){
+    const items = this.state.items
     return (
       <table>
         <thead>
@@ -14,10 +32,11 @@ class Result extends React.Component{
         </thead>
 
         <tbody>
-          <tr>
-            <td>Alvin</td>
-            <td>3 of 6</td>
-          </tr>
+          {
+            items && items.map((item, index) => {
+              return <tr key={index}><td> Unknown </td> <td> {item.score} из {item.total} </td> </tr>
+            })
+          }
         </tbody>
       </table>            
     )

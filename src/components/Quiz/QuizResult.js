@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import apiService from '../../services/firebase/apiService'
 
 function QuizResult({ totalCorrectAnswers, quizLength }) {

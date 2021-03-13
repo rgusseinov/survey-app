@@ -49,12 +49,16 @@ class apiService {
     this.fb.firestore().collection('results').add(data)
   }
 
-
-/*   const snapshot = await firebase.firestore().collection('events').get()
-  return snapshot.docs.map(doc => doc.data()); */
-
+  async getUserResult(){
+    const snapshot = await this.fb.firestore().collection('results').get().then((res) => {
+      return res.docs.map((doc) => ({ 
+        id: doc.id, ...doc.data(),
+        docRef: doc.id
+      }));
+    })
+    return snapshot
+  }
 }
 
 
 export default new apiService();
-// export const db = firebase.firestore();

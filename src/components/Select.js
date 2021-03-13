@@ -17,10 +17,12 @@ class Select extends React.Component{
   }
   
   render(){
+    const items = this.state.items
     return (
       <select className="browser-default" onChange={this.props.handleFieldChange} name="category">
+        <option value="no"> Please select option </option>
         {
-          this.state.items && this.state.items.map(item => <option key={item.id} value={item.url}>{item.name}</option>)
+          items && items.map((item, index) => <option key={item.id} value={item.url}>{item.name}</option>)
         }        
       </select>
     )

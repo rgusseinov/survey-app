@@ -18,7 +18,6 @@ function App() {
     }
 
     function handleCategoryRemove(e){
-      // console.log(`remove`, e.target.getAttribute('data-category'))
       const categoryId = e.target.getAttribute('data-category')
       apiService.deleteQuiz(categoryId)
     }

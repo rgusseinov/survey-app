@@ -27,6 +27,11 @@ class AddQuiz extends React.Component {
     const input = this.state.input
     let isValid = true
 
+    if (!input['category']){
+      isValid = false
+      error['category'] = 'Пожалуйста, укажите категорию!'
+    }
+
     if (!input['question']){
       isValid = false
       error['question'] = 'Пожалуйста, введите вопрос!'
@@ -81,9 +86,7 @@ class AddQuiz extends React.Component {
         ]
       }
 
-      apiService.addQuize(data)
-      console.log(`Data added`, data)
-      
+      apiService.addQuize(data)      
     }
 
   }
@@ -93,6 +96,9 @@ class AddQuiz extends React.Component {
 
     return (
       <div className="row">
+
+
+        
         <div className="container">
           <form className="col s6">
 
