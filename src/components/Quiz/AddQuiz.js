@@ -140,6 +140,7 @@ class AddQuiz extends React.Component {
             <div className="row">
               <div className="input-field col s6">
               <select className="browser-default" onChange={this.handleFieldChange} name="rightAnswerId">
+                <option>Выберите ответ</option>
                 <option value="1">Ответ 1</option>
                 <option value="2">Ответ 2</option>
                 <option value="3">Ответ 3</option>
