@@ -10,8 +10,7 @@ function QuizResult({ totalCorrectAnswers, quizLength }) {
       total: quizLength
     })
   })
-
-
+  
   return (
     <div>
       <h3> Результаты тестование </h3>

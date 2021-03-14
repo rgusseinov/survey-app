@@ -22,7 +22,6 @@ class Quiz extends React.Component {
 
   async componentDidMount(){
     const data = await apiService.getQuize(this.activeCategory)
-    // console.log(data)
     this.setState({ quiz: data, isQuizLoaded: true })
   }
 
@@ -75,7 +74,7 @@ class Quiz extends React.Component {
       <div className="container">
       <div className="row">
         <div className="col s9">
-          <h5>Тестирование по IT:</h5>
+          <h3>Тестирование по IT:</h3>
           {
             !this.state.isQuizLoaded ? <Loader /> :
             this.state.isFinished ?

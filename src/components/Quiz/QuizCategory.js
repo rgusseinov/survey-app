@@ -2,7 +2,6 @@ import React from 'react'
 import apiService from '../../services/firebase/apiService'
 import Loader from '../Loader'
 
-
 class QuizCategory extends React.Component {
   constructor(options){
     super(options)
@@ -22,29 +21,27 @@ class QuizCategory extends React.Component {
       isCategoryLoaded: true
     })
   }
-
-
   render(){
     return (
       <div className="container">
         <div className="row">
           <div className="col s9">
-            <h4> Выберите категорию тестирования </h4>
-            <div className="collection">
+            <h3> Выберите категорию тестирования </h3>
+            <table>
               {
-                !this.state.isCategoryLoaded ? <Loader /> : this.state.items.map(item =>
-                  <div key={item.id} className="category-item">
-                    <span>
-                      <a href="#!"
-                      onClick={this.props.onCategorySelect}
-                      data-type={item.url}
-                      className="collection-item">{ item.name }</a>
-                    </span>
-                    <span data-category={item.docRef} onClick={this.props.onCategoryRemove}> Remove </span>                    
-                  </div>
-                  )
-              }
-            </div>
+                  !this.state.isCategoryLoaded ? <Loader /> : this.state.items.map(item =>
+                    <tr key={item.id} className="category-item">
+                      <td>
+                        <a href="#!"
+                        onClick={this.props.onCategorySelect}
+                        data-type={item.url}
+                        className="collection-item">{ item.name }</a>
+                      </td>
+                      <td data-category={item.docRef} onClick={this.props.onCategoryRemove}> Удалить </td>      
+                    </tr>
+                    )
+                }
+            </table>
           </div>
         </div>
       </div>)

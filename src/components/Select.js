@@ -20,7 +20,7 @@ class Select extends React.Component{
     const items = this.state.items
     return (
       <select className="browser-default" onChange={this.props.handleFieldChange} name="category">
-        <option value="no"> Please select option </option>
+        <option value="no"> Укажите категорию </option>
         {
           items && items.map((item, index) => <option key={item.id} value={item.url}>{item.name}</option>)
         }        

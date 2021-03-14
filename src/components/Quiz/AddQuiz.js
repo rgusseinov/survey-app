@@ -61,12 +61,9 @@ class AddQuiz extends React.Component {
       isValid = false
       error['rightAnswerId'] = 'Укажите правильный ответ'
     }
-
-
     this.setState({
       error
     })
-
     return isValid
   }
 
@@ -74,7 +71,6 @@ class AddQuiz extends React.Component {
     e.preventDefault()
     if (this.formValidation()){
       const input = this.state.input
-
       const data = {
         id: Date.now(),
         rightAnswerId: input['rightAnswerId'], 
@@ -85,31 +81,22 @@ class AddQuiz extends React.Component {
           {text: input['answerС'], id: 3}, {text: input['answerD'], id: 4}
         ]
       }
-
-      apiService.addQuize(data)      
+      apiService.addQuize(data)
     }
-
   }
-
   render(){
     const error = this.state.error
-
     return (
-      <div className="row">
-
-
-        
+      <div className="row">        
         <div className="container">
           <form className="col s6">
-
+          <h3> Новый вопрос </h3>
           <div className="row">
               <div className="input-field col s6">
                 <Select handleFieldChange={this.handleFieldChange} />
               </div>
               { error.category }
             </div>
-
-
             <div className="row">
               <div className="input-field col s12">
                 <input placeholder="Вопрос" name="question" onChange={this.handleFieldChange} type="text" className="validate" />

@@ -36,37 +36,42 @@ function AddQuizCategory() {
   }
 
   return (
-    <div className="row">
-      <div className="container">
-        <form className="col s6">
-          <div className="row">
-            <div className="input-field col s12">
-            {
-              !isLoaded ? <Loader /> : null
-            }
-            <input
-              placeholder="URL"
-              name="url"
-              type="text"
-              value={urlInput}
-              readOnly
-            />
-
-            <input 
-              placeholder="Категория"
-              name="category"
-              onChange={handleFieldChange}
-              type="text"
-              className="validate"
-              value={input['category']}
-            />
-              <label htmlFor="question"></label>
-            </div>
+    <div>
+       <div className="container">
+         <div className="row">
+          <div className="col s8">
+            <h3> Добавление новой категории </h3>
           </div>
-          <button type="reset" className="waves-effect waves-light btn" onClick={handleSubmitForm}>Добавить</button>
-        </form>
+         </div>         
+         <div className="row">
+          <form className="col s6">
+              <div className="input-field col s12">              
+              {
+                !isLoaded ? <Loader /> : null
+              }
+              <input
+                placeholder="URL"
+                name="url"
+                type="text"
+                value={urlInput}
+                readOnly
+              />
+
+              <input 
+                placeholder="Категория"
+                name="category"
+                onChange={handleFieldChange}
+                type="text"
+                className="validate"
+                value={input['category']}
+              />
+                <label htmlFor="question"></label>
+              </div>
+            <button type="reset" className="waves-effect waves-light btn" onClick={handleSubmitForm}>Добавить</button>
+          </form>
+        </div>
     </div>
-  </div>
+    </div>
   )
 }
 
